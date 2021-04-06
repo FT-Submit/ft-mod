@@ -16,3 +16,5 @@ The file `hftokenize.py` contains the script used to tokenize the training corpo
 The file `ftscript.sh` contains the script that calculates the embeddings for different algorithmic variants.
 
 All evaluation has been done with the evaluation tools prepared by the corresponding task creators and providers.
+
+The code used for the experiments on synthetic datals can be found in the file `synthetic.cpp`.
