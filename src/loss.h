@@ -75,7 +75,7 @@ class Loss {
     return codes_;
   }
   virtual int32_t getNegative(int32_t target, std::minstd_rand& rng) { };
-  virtual int32_t sharedNegatives(std::vector<int32_t>& negatives, const std::vector<int32_t>& targets, std::minstd_rand& rng) { };
+  virtual void sharedNegatives(std::vector<int32_t>& negatives, const std::vector<int32_t>& targets, std::minstd_rand& rng) { };
 };
 
 class BinaryLogisticLoss : public Loss {
@@ -135,7 +135,7 @@ class NegativeSamplingLoss : public BinaryLogisticLoss {
     real lr,
     bool backprop) override;
     
-  int32_t sharedNegatives(std::vector<int32_t>& negatives, const std::vector<int32_t>& targets, std::minstd_rand& rng) override;
+  void sharedNegatives(std::vector<int32_t>& negatives, const std::vector<int32_t>& targets, std::minstd_rand& rng) override;
 };
 
 class HierarchicalSoftmaxLoss : public BinaryLogisticLoss {

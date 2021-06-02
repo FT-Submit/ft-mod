@@ -220,7 +220,7 @@ int32_t NegativeSamplingLoss::getNegative(
   return negative;
 }
 
-int32_t NegativeSamplingLoss::sharedNegatives(
+void NegativeSamplingLoss::sharedNegatives(
     std::vector<int32_t>& negatives,
     const std::vector<int32_t>& targets,
     std::minstd_rand& rng) {
