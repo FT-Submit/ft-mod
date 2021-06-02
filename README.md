@@ -66,26 +66,31 @@ The full set of experiments on a single machine may take up to a few days to com
 
 ## Evaluation
 
-All evaluation has been done with the evaluation tools prepared by the corresponding task creators and providers.
+All evaluation has been done with the evaluation tools prepared by the corresponding task creators and providers. The full evaluation may take multiple days to complete.
 
-- To test on QW (sem., syn.), we use the `compute-accuracy.c` code provided [HERE](https://github.com/svn2github/word2vec) by Thomas Mikolov alongside with the `questions-words.txt` test data.
-- To test on BATS, we use the [Vecto](https://pypi.org/project/vecto/) Python package:    
+The following refer to the experiments illustated in Tables 1-2:
+
+### QW
+To test on QW (sem., syn.), we use the `compute-accuracy.c` code provided [HERE](https://github.com/svn2github/word2vec) by Thomas Mikolov alongside with the `questions-words.txt` test data.
+
+### BATS
+To test on BATS, we use the [Vecto](https://pypi.org/project/vecto/) Python package:    
 
 ```
 python -m vecto benchmark analogy [embedding file name] BATS_3.0 --path_out [results file name] --method 3CosAdd
 ```
 
-- To test on MUSE, we use the code provided [HERE](https://github.com/facebookresearch/MUSE) by Facebook Research. Please see Section 1 in [howtorun.pdf](https://github.com/FT-Submit/ft-mod/blob/main/howtorun.pdf) on which datasets we use and where we download them from. We evaluate with the `evaluate.py` script, e.g., to test on English, we run:    
+### MUSE
+To test on MUSE, we use the code provided [HERE](https://github.com/facebookresearch/MUSE) by Facebook Research. Please see Section 1 in [howtorun.pdf](https://github.com/FT-Submit/ft-mod/blob/main/howtorun.pdf) on which datasets we use and where we download them from. We evaluate with the `evaluate.py` script, e.g., to test on English, we run:    
 
 ```
 python evaluate.py --src_lang en --src_emb [path to embedding file]
 ```
 
-
-- To test on Battig, we use [word-embeddings-benchmarks](https://github.com/kudkudak/word-embeddings-benchmarks), we run the full evaluation script and pick the Battig score. Note that the other scores either repeat the experiments we had already done, or operate on smaller data. We do not report them in the paper.    
+### Battig
+To test on Battig, we use [word-embeddings-benchmarks](https://github.com/kudkudak/word-embeddings-benchmarks), we run the full evaluation script and pick the Battig score. Note that the other scores either repeat the experiments we had already done, or operate on smaller data. We do not report them in the paper.    
 
 ```
 python ./scripts/evaluate_on_all.py -p word2vec -f [embedding file name] -o [results file name]
 ```
 
-The evaluation often occurs in a single-threaded fashion and may take multiple days to complete.
